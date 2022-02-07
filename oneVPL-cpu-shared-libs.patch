@@ -1,0 +1,28 @@
+--- a/cpu/ext/ffmpeg-svt/CMakeLists.txt
++++ b/cpu/ext/ffmpeg-svt/CMakeLists.txt
+@@ -20,17 +20,17 @@ endif()
+ option(BUILD_GPL_X264 "Build X264 with GPL License" OFF)
+ 
+ if("${CMAKE_SIZEOF_VOID_P}" STREQUAL "8")
+-  set(SVTHEVCENC_LIB ${VPL_DEP_DIR}/lib/libSvtHevcEnc.a)
+-  set(SVTAV1ENC_LIB ${VPL_DEP_DIR}/lib/libSvtAv1Enc.a)
+-  set(DAV1D_LIB ${VPL_DEP_DIR}/lib/libdav1d.a)
++  set(SVTHEVCENC_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libSvtHevcEnc.so)
++  set(SVTAV1ENC_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libSvtAv1Enc.so)
++  set(DAV1D_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libdav1d.so)
+ endif()
+-set(AVCODEC_LIB ${VPL_DEP_DIR}/lib/libavcodec.a)
+-set(AVUTIL_LIB ${VPL_DEP_DIR}/lib/libavutil.a)
+-set(AVFILTER_LIB ${VPL_DEP_DIR}/lib/libavfilter.a)
+-set(SWSCALE_LIB ${VPL_DEP_DIR}/lib/libswscale.a)
++set(AVCODEC_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libavcodec.so)
++set(AVUTIL_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libavutil.so)
++set(AVFILTER_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libavfilter.so)
++set(SWSCALE_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libswscale.so)
+ 
+ if(BUILD_GPL_X264)
+-  set(X264_LIB ${VPL_DEP_DIR}/lib/libx264.a)
++  set(X264_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libx264.so)
+   if(NOT EXISTS ${X264_LIB})
+     message(FATAL_ERROR "Could not find expected FFmpeg libraries")
+   endif()
