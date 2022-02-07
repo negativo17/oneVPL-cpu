@@ -1,13 +1,15 @@
 Name:           oneVPL-cpu
-Version:        2022.0.0
+Version:        2022.0.4
 Release:        1%{?dist}
 Summary:        oneAPI Video Processing Library CPU Implementation
 License:        MIT
 URL:            https://www.intel.com/content/www/us/en/developer/tools/oneapi/onevpl.html
 
-Source0:        https://github.com/oneapi-src/oneVPL-cpu/archive/v%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/oneapi-src/%{name}/archive/v%{version}/%{name}-%{version}.tar.gz
 Patch0:         %{name}-shared-libs.patch
 Patch1:         %{name}-cxxflags.patch
+
+Requires:       oneVPL%{?_isa}
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
@@ -30,9 +32,9 @@ This repository contains a CPU implementation of the specification.
 
 %build
 export VPL_BUILD_DEPENDENCIES="%{_prefix}"
-export CXXFLAGS="%{optflags} -I%{_includedir}/ffmpeg"
 %cmake \
-    -DBUILD_TESTS:BOOL='OFF' \
+    -DBUILD_GPL_X264:BOOL="ON" \
+    -DBUILD_TESTS:BOOL="OFF" \
     -DCMAKE_BUILD_TYPE:STRING="Fedora"
 %cmake_build
 
@@ -50,5 +52,5 @@ rm -fr %{buildroot}%{_docdir}
 %{_libdir}/libvplswref64.so.1
 
 %changelog
-* Sat Feb 05 2022 Simone Caronni <negativo17@gmail.com> - 2022.0.0-1
+* Tue Feb 08 2022 Simone Caronni <negativo17@gmail.com> - 2022.0.4-1
 - First build.
