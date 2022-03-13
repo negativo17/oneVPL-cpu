@@ -1,19 +1,27 @@
-diff -Naur oneVPL-cpu-2022.0.0.old/cmake/CompileOptions.cmake oneVPL-cpu-2022.0.0/cmake/CompileOptions.cmake
---- oneVPL-cpu-2022.0.0.old/cmake/CompileOptions.cmake	2022-02-07 08:49:08.815368309 +0100
-+++ oneVPL-cpu-2022.0.0/cmake/CompileOptions.cmake	2022-02-07 08:49:17.296509594 +0100
-@@ -44,15 +44,4 @@
-     set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} /SAFESEH:NO")
+diff -Naur oneVPL-cpu-2022.0.6.old/cmake/CompileOptions.cmake oneVPL-cpu-2022.0.6/cmake/CompileOptions.cmake
+--- oneVPL-cpu-2022.0.6.old/cmake/CompileOptions.cmake	2022-03-13 16:47:09.122352199 +0100
++++ oneVPL-cpu-2022.0.6/cmake/CompileOptions.cmake	2022-03-13 16:53:06.044808520 +0100
+@@ -45,22 +45,7 @@
      set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} /SAFESEH:NO")
    endif()
--else()
+ else() # compiler options in 'mingw Windows' or 'Linux'
+-  # common
+-  add_compile_options("-Wall")
 -  add_compile_options("-Wformat")
 -  add_compile_options("-Wformat-security")
 -  add_compile_options("-Werror=format-security")
 -  add_definitions("-D_FORTIFY_SOURCE=2")
--  add_compile_options("-fstack-protector-strong")
--  set(CMAKE_CXX_FLAGS "-z relro -z now -z noexecstack")
--  add_compile_options("-Wall")
+-
+-  # only when warning as error option is enabled in CI test
 -  if(ENABLE_WARNING_AS_ERROR)
 -    add_compile_options("-Werror")
 -  endif()
- endif()
+-
+-  if(LINUX) # Linux only
+-    add_compile_options("-fstack-protector-strong")
+-    set(CMAKE_CXX_FLAGS "-z relro -z now -z noexecstack")
+-  elseif(WIN32) # mingw in Windows only
++  if(WIN32) # mingw in Windows only
+     add_compile_options("-fPIC")
+     add_compile_options("-shared")
+     # Windows verion of "-z noexecstack"
