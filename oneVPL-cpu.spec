@@ -13,8 +13,11 @@ Requires:       oneVPL%{?_isa}
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
-BuildRequires:  ffmpeg-devel
+BuildRequires:  libavcodec-devel
+BuildRequires:  libavfilter-devel
+BuildRequires:  libavutil-devel
 BuildRequires:  libdav1d-devel
+BuildRequires:  libswscale-devel
 BuildRequires:  oneVPL-devel
 BuildRequires:  svt-av1-devel
 BuildRequires:  svt-hevc-devel
