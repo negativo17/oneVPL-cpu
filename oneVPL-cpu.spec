@@ -11,8 +11,8 @@ Patch1:         %{name}-cxxflags.patch
 
 Requires:       oneVPL%{?_isa}
 
-BuildRequires:  cmake
-BuildRequires:  gcc-c++
+BuildRequires:  cmake3
+BuildRequires:  devtoolset-9-gcc-c++
 BuildRequires:  libavcodec-devel
 BuildRequires:  libavfilter-devel
 BuildRequires:  libavutil-devel
@@ -34,15 +34,24 @@ This repository contains a CPU implementation of the specification.
 %autosetup -p1
 
 %build
+mkdir build
+pushd build
+
+. /opt/rh/devtoolset-9/enable
 export VPL_BUILD_DEPENDENCIES="%{_prefix}"
-%cmake \
+%cmake3 \
     -DBUILD_GPL_X264:BOOL="ON" \
     -DBUILD_TESTS:BOOL="OFF" \
-    -DCMAKE_BUILD_TYPE:STRING="Fedora"
-%cmake_build
+    -DCMAKE_BUILD_TYPE:STRING="Fedora" \
+    ..
+%cmake3_build
+
+popd
 
 %install
-%cmake_install
+pushd build
+%cmake3_install
+popd
 
 # Let RPM pick up documents in the files section
 rm -fr %{buildroot}%{_docdir}
