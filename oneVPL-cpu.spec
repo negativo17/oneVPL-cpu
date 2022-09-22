@@ -1,6 +1,6 @@
 Name:           oneVPL-cpu
 Version:        2022.2.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        oneAPI Video Processing Library CPU Implementation
 License:        MIT
 URL:            https://www.intel.com/content/www/us/en/developer/tools/oneapi/onevpl.html
@@ -53,6 +53,9 @@ rm -fr %{buildroot}%{_datadir}/%{name}
 %{_libdir}/libvplswref64.so.1
 
 %changelog
+* Thu Sep 22 2022 Simone Caronni <negativo17@gmail.com> - 2022.2.2-2
+- Rebuild for updated dependencies.
+
 * Wed Aug 24 2022 Simone Caronni <negativo17@gmail.com> - 2022.2.2-1
 - Update to 2022.2.2.
 
