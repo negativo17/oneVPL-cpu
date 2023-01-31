@@ -1,6 +1,6 @@
-diff -Naur oneVPL-cpu-2022.0.6.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt oneVPL-cpu-2022.0.6/cpu/ext/ffmpeg-codecs/CMakeLists.txt
---- oneVPL-cpu-2022.0.6.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2022-03-13 16:47:09.122352199 +0100
-+++ oneVPL-cpu-2022.0.6/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2022-03-13 16:50:10.021624710 +0100
+diff -Naur oneVPL-cpu-2023.1.2.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt oneVPL-cpu-2023.1.2/cpu/ext/ffmpeg-codecs/CMakeLists.txt
+--- oneVPL-cpu-2023.1.2.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2023-02-01 08:17:01.754377184 +0100
++++ oneVPL-cpu-2023.1.2/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2023-02-01 08:17:07.481475232 +0100
 @@ -38,9 +38,9 @@
  
  # Set basic FFmpeg and codec libs
@@ -13,7 +13,7 @@ diff -Naur oneVPL-cpu-2022.0.6.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt oneVPL-c
 +  set(DAV1D_LIB ${VPL_DEP_DIR}/lib${LIB_SUFFIX}/libdav1d.so)
  
    if(NOT EXISTS ${SVTHEVCENC_LIB}
-      OR NOT EXISTS ${SVTHEVCENC_LIB}
+      OR NOT EXISTS ${SVTAV1ENC_LIB}
 @@ -49,10 +49,10 @@
    endif()
  endif()
