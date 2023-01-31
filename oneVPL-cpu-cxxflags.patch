@@ -1,7 +1,7 @@
-diff -Naur oneVPL-cpu-2022.0.6.old/cmake/CompileOptions.cmake oneVPL-cpu-2022.0.6/cmake/CompileOptions.cmake
---- oneVPL-cpu-2022.0.6.old/cmake/CompileOptions.cmake	2022-03-13 16:47:09.122352199 +0100
-+++ oneVPL-cpu-2022.0.6/cmake/CompileOptions.cmake	2022-03-13 16:53:06.044808520 +0100
-@@ -45,22 +45,7 @@
+diff -Naur oneVPL-cpu-2023.1.2.old/cmake/CompileOptions.cmake oneVPL-cpu-2023.1.2/cmake/CompileOptions.cmake
+--- oneVPL-cpu-2023.1.2.old/cmake/CompileOptions.cmake	2023-01-31 07:25:52.964325929 +0100
++++ oneVPL-cpu-2023.1.2/cmake/CompileOptions.cmake	2023-01-31 07:26:52.673301208 +0100
+@@ -45,23 +45,7 @@
      set(CMAKE_MODULE_LINKER_FLAGS "${CMAKE_MODULE_LINKER_FLAGS} /SAFESEH:NO")
    endif()
  else() # compiler options in 'mingw Windows' or 'Linux'
@@ -17,9 +17,10 @@ diff -Naur oneVPL-cpu-2022.0.6.old/cmake/CompileOptions.cmake oneVPL-cpu-2022.0.
 -    add_compile_options("-Werror")
 -  endif()
 -
--  if(LINUX) # Linux only
+-  if(UNIX)
 -    add_compile_options("-fstack-protector-strong")
--    set(CMAKE_CXX_FLAGS "-z relro -z now -z noexecstack")
+-    add_link_options("-Wl,-z,relro,-z,now,-z,noexecstack")
+-    add_link_options("$<$<CONFIG:Release>:-Wl,--strip-debug>")
 -  elseif(WIN32) # mingw in Windows only
 +  if(WIN32) # mingw in Windows only
      add_compile_options("-fPIC")

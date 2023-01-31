@@ -1,6 +1,6 @@
-diff -Naur oneVPL-cpu-2022.1.4.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt oneVPL-cpu-2022.1.4/cpu/ext/ffmpeg-codecs/CMakeLists.txt
---- oneVPL-cpu-2022.1.4.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2022-06-01 20:12:09.134618307 +0200
-+++ oneVPL-cpu-2022.1.4/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2022-06-01 20:13:03.775582642 +0200
+diff -Naur oneVPL-cpu-2023.1.2.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt oneVPL-cpu-2023.1.2/cpu/ext/ffmpeg-codecs/CMakeLists.txt
+--- oneVPL-cpu-2023.1.2.old/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2023-02-01 08:17:01.754377184 +0100
++++ oneVPL-cpu-2023.1.2/cpu/ext/ffmpeg-codecs/CMakeLists.txt	2023-02-01 08:17:07.481475232 +0100
 @@ -38,9 +38,9 @@
  
  # Set basic FFmpeg and codec libs
