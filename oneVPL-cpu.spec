@@ -1,5 +1,5 @@
 Name:           oneVPL-cpu
-Version:        2023.1.3
+Version:        2023.2.0
 Release:        1%{?dist}
 Summary:        oneAPI Video Processing Library CPU Implementation
 License:        MIT
@@ -64,6 +64,9 @@ rm -fr %{buildroot}%{_datadir}/%{name}
 %{_libdir}/libvplswref64.so.1
 
 %changelog
+* Thu Apr 13 2023 Simone Caronni <negativo17@gmail.com> - 2023.2.0-1
+- Update to 2023.2.0.
+
 * Tue Mar 07 2023 Simone Caronni <negativo17@gmail.com> - 2023.1.3-1
 - Update to 2023.1.3.
 
