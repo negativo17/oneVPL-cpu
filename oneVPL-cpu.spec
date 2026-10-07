@@ -1,6 +1,6 @@
 Name:           oneVPL-cpu
 Version:        2023.2.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        oneAPI Video Processing Library CPU Implementation
 License:        MIT
 URL:            https://www.intel.com/content/www/us/en/developer/tools/oneapi/onevpl.html
@@ -53,6 +53,9 @@ rm -fr %{buildroot}%{_datadir}/%{name}
 %{_libdir}/libvplswref64.so.1
 
 %changelog
+* Wed Oct 07 2026 Simone Caronni <negativo17@gmail.com> - 2023.2.0-2
+- Rebuild for updated dependencies.
+
 * Thu Apr 13 2023 Simone Caronni <negativo17@gmail.com> - 2023.2.0-1
 - Update to 2023.2.0.
 
